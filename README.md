@@ -1,26 +1,23 @@
 # Running Red Hat Enterprise Linux 7.5 as EKS Worker Nodes
 
 ## Setup
-* Red Hat Enterprise Linux 7.5
-<img src="./images/aws-rhel.png"/>
+* CentOs 7
 
-* Kubernetes 1.12.7 on AWS EKS
+* Kubernetes 1.14.6 on AWS EKS
 
 ## Workflow
-* Provision an EC2 Server with RHEL 7.5 AMI.
+* Provision an EC2 Server with Cenotos AMI.
 * Install the following dependencies.
 ```
-yum install -y git vim
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-yum install -y python-pip
-pip install --upgrade awscli
-yum install -y http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.68-1.el7.noarch.rpm
+yum install -y git nano vim
 ```
-* Clone this repo and Execute install-worker.sh
+* Clone this repo and Execute install-centos-requirements.sh
 ```
-git clone https://github.com/piu28/aws-eks-rhel-workers.git
+git clone --single-branch --branch centos https://github.com/danno-rose/aws-eks-rhel-workers.git
 cd aws-eks-rhel-workers
+sh install-centos-requirements
 sh install-worker.sh
+
 ```
 * Create an AMI of this server.
 * Provision a Cloudformation Stack with the below template provided by AWS:
