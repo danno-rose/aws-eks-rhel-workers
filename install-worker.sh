@@ -26,11 +26,19 @@ else
     exit 1
 fi
 
+#### CENTOS SPECIFIC
 sudo yum update -y
+sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum install -y python-pip
+sudo pip install --upgrade awscli
+sudo yum install -y container-selinux
+sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+sudo systemctl enable amazon-ssm-agent
+sudo systemctl start amazon-ssm-agent
 
+### From the main repo -- minus aws cli
 sudo yum install -y \
     aws-cfn-bootstrap \
-    awscli \
     chrony \
     conntrack \
     curl \
@@ -39,6 +47,7 @@ sudo yum install -y \
     socat \
     unzip \
     wget
+
 
 sudo chkconfig chronyd on
 
