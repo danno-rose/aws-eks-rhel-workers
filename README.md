@@ -13,7 +13,7 @@ yum install -y git nano vim
 ```
 * Clone this repo and Execute install-centos-requirements.sh
 ```
-git clone --single-branch --branch centos https://github.com/danno-rose/aws-eks-rhel-workers.git
+git clone --single-branch --branch centos-dockerselinux https://github.com/danno-rose/aws-eks-rhel-workers.git
 cd aws-eks-rhel-workers
 sh install-centos-requirements
 sh install-worker.sh
